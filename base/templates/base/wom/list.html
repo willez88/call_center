@@ -1,0 +1,54 @@
+{% extends 'base/base.html' %}
+{% load i18n %}
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">
+    WOM
+  </li>
+{% endblock %}
+{% block content %}
+  <div class="card">
+    <div class="card-header">
+      Listar <a href="{% url 'base:wom_create' %}" class="btn btn-success btn-sm float-right">Registrar</a>
+    </div>
+
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered display dataTable" id="table" style="width:100%;">
+          <thead>
+            <tr>
+              <th>Nombre del cliente</th>
+              <th>Cédula o DNI</th>
+              <th>Nombre del minorista</th>
+              <th>Número de teléfono</th>
+              <th>Tipo de cliente</th>
+              <th>Subdisposición</th>
+              <th>Resultado de la llamada</th>
+              <th>Proyecto</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for wom in object_list %}
+              <tr>
+                <td><a href="{% url 'base:wom_update' wom.id %}" title="Actualizar">{{ wom.client_name }}</a></td>
+                <td> {{ wom.id_number }} </td>
+                <td> {{ wom.retailer_name }} </td>
+                <td> {{ wom.phone }} </td>
+                <td> {{ wom.client_type }} </td>
+                <td> {{ wom.subdisposition }} </td>
+                <td> {{ wom.call_result }} </td>
+                <td> {{ wom.project }} </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+{% block extra_footer %}
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var table = $('#table').DataTable();
+    });
+  </script>
+{% endblock %}

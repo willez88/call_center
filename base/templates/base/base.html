@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE|default:"es-ve" }}">
+  {% include 'base/head.html' %}
+  <body id="page-top">
+    {% include 'base/navbar.html' %}
+    <div id="wrapper">
+      {% include 'base/sidebar.html' %}
+      <div id="content-wrapper">
+        <div class="container-fluid" id="app">
+
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="{% url 'base:home' %}">Inicio</a>
+            </li>
+            {% block breadcrumb %}
+
+            {% endblock %}
+          </ol>
+
+          <div class="row">
+            <div class="col-12">
+              <h1>{% block content_header_title %}{% endblock %}</h1>
+            </div>
+          </div>
+          {% block content %}
+            <div class="row">
+              <div class="col-12 text-center">
+                  {% if request.user.is_authenticated %}
+                    <p>Bienvenido {{ request.user.username }}.</p>
+                  {% else %}
+                    <p>Bienvenido al sistema.</p>
+                    <p>Inicie sesión para registrar los datos.</p>
+                  {% endif %}
+              </div>
+            </div>
+          {% endblock %}
+        </div>
+        {% include 'base/footer_info.html' %}
+      </div>
+    </div>
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+    {% include 'base/footer.html' %}
+    {% block extra_footer %}
+
+    {% endblock %}
+    <script type="text/javascript">
+      $(document).ready(function()
+        {
+          // obtiene la url actual del sistema
+          const route = '{{ request.path }}';
+
+          // rutas de un nivel ubch
+          const ubch_list = '/user/community-leader/list/';
+          const ubch_create = '/user/community-leader/create/';
+
+          // rutas de lider de comunidad
+          const community_leader_list = '/user/street-leader/list/';
+          const community_leader_create = '/user/street-leader/create/';
+
+          // rutas de lider de calle
+          const street_leader_list = '/user/family-group/list/';
+          const street_leader_create = '/user/family-group/create/';
+
+          // Ruta del censo general
+          const census_list = '/user/census/list/';
+
+          // Ruta de las búsquedas
+          const search = '/user/searches/';
+
+          // Ruta de amonestaciones
+          const admonition_list = '/user/admonitions/list/';
+          const admonition_create = '/user/admonitions/create/';
+
+          if( route == '/' ) {
+            $('#ba').addClass('active');
+          }
+          else if( route == ubch_list || route == ubch_create ) {
+            $('#ubch').addClass('active');
+          }
+          else if( route == community_leader_list || route == community_leader_create ) {
+            $('#community_leader').addClass('active');
+          }
+          else if( route == street_leader_list || route == street_leader_create ) {
+            $('#street_leader').addClass('active');
+          }
+          else if( route == census_list ) {
+            $('#census_list').addClass('active');
+          }
+          else if( route == search ) {
+            $('#search').addClass('active');
+          }
+          else if( route == admonition_list || route == admonition_create) {
+            $('#admonition').addClass('active');
+          }
+        });
+    </script>
+  </body>
+</html>

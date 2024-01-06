@@ -1,0 +1,19 @@
+{% for message in messages %}
+  {% if message %}
+    <script>
+      var msg = "{{ message }}";
+      var modal = bootbox.dialog({
+        size: "medium",
+        message: msg,
+        backdrop: true,
+        buttons: {
+          success: {
+            label: "Cerrar",
+            className: "btn-info rounded text-light"
+          }
+        }
+      });
+      $(modal).find(".bootbox-body").addClass('text-justify');
+    </script>
+  {% endif %}
+{% endfor %}

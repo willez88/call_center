@@ -1,0 +1,23 @@
+[
+{
+    "model": "base.clienttype",
+    "pk": 1,
+    "fields": {
+        "name": "Zoral (LMS)"
+    }
+},
+{
+    "model": "base.clienttype",
+    "pk": 2,
+    "fields": {
+        "name": "M3"
+    }
+},
+{
+    "model": "base.clienttype",
+    "pk": 3,
+    "fields": {
+        "name": "Sin contrato (no cliente)"
+    }
+}
+]

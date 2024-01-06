@@ -1,0 +1,23 @@
+[
+{
+    "model": "base.project",
+    "pk": 1,
+    "fields": {
+        "name": "Colombia"
+    }
+},
+{
+    "model": "base.project",
+    "pk": 2,
+    "fields": {
+        "name": "Perú"
+    }
+},
+{
+    "model": "base.project",
+    "pk": 3,
+    "fields": {
+        "name": "WOM"
+    }
+}
+]

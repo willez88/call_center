@@ -1,0 +1,306 @@
+[
+{
+    "model": "base.subdisposition",
+    "pk": 1,
+    "fields": {
+        "name": "Cómo financiar",
+        "disposition": 1
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 2,
+    "fields": {
+        "name": "Dudas en general",
+        "disposition": 1
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 3,
+    "fields": {
+        "name": "Consulta de saldo",
+        "disposition": 2
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 4,
+    "fields": {
+        "name": "Solicitud para corrección de pagos",
+        "disposition": 2
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 5,
+    "fields": {
+        "name": "Confirmar pago realizado",
+        "disposition": 2
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 6,
+    "fields": {
+        "name": "Extensión de pagos",
+        "disposition": 2
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 7,
+    "fields": {
+        "name": "Desbloqueo equipo por pago pendiente por aplicar",
+        "disposition": 2
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 8,
+    "fields": {
+        "name": "Facturación",
+        "disposition": 2
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 9,
+    "fields": {
+        "name": "Carta de saldo",
+        "disposition": 2
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 10,
+    "fields": {
+        "name": "Paz y salvo",
+        "disposition": 2
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 11,
+    "fields": {
+        "name": "Fully paid",
+        "disposition": 3
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 12,
+    "fields": {
+        "name": "Solicitud de contrato",
+        "disposition": 4
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 13,
+    "fields": {
+        "name": "Desiste de contrato / Crédito",
+        "disposition": 4
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 14,
+    "fields": {
+        "name": "Fallecimiento titular",
+        "disposition": 4
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 15,
+    "fields": {
+        "name": "Robo / Extravío",
+        "disposition": 5
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 16,
+    "fields": {
+        "name": "Bloqueo por olvido patrón / Contraseña",
+        "disposition": 5
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 17,
+    "fields": {
+        "name": "Bloqueo de equipo por falla de internet",
+        "disposition": 5
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 18,
+    "fields": {
+        "name": "Equipo con conexión a internet y se mantiene bloqueado",
+        "disposition": 6
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 19,
+    "fields": {
+        "name": "Problemas con App Nuovo (Masivo)",
+        "disposition": 6
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 20,
+    "fields": {
+        "name": "Problemas con App Knox (Masivo)",
+        "disposition": 6
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 21,
+    "fields": {
+        "name": "Cliente presenta error al realizar pago",
+        "disposition": 6
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 22,
+    "fields": {
+        "name": "Información de garantías / Plan de reparación",
+        "disposition": 7
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 23,
+    "fields": {
+        "name": "Política de Devolución / Wom",
+        "disposition": 7
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 24,
+    "fields": {
+        "name": "Cambio de SIM",
+        "disposition": 8
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 25,
+    "fields": {
+        "name": "Cambio de número",
+        "disposition": 8
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 26,
+    "fields": {
+        "name": "Corrección de nombre",
+        "disposition": 9
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 27,
+    "fields": {
+        "name": "Cambio de correo",
+        "disposition": 9
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 28,
+    "fields": {
+        "name": "Desconoce financiamiento / Suplantación",
+        "disposition": 10
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 29,
+    "fields": {
+        "name": "Segundo comprador",
+        "disposition": 10
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 30,
+    "fields": {
+        "name": "Reporte de malas prácticas o fraude",
+        "disposition": 10
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 31,
+    "fields": {
+        "name": "Abandono del cliente",
+        "disposition": 11
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 32,
+    "fields": {
+        "name": "No se comunica el titular - No se atiende requerimiento",
+        "disposition": 12
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 33,
+    "fields": {
+        "name": "Ventas",
+        "disposition": 13
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 34,
+    "fields": {
+        "name": "Spam",
+        "disposition": 13
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 35,
+    "fields": {
+        "name": "Relacionado prestamo personal",
+        "disposition": 13
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 36,
+    "fields": {
+        "name": "Direccionamiento legal: remitir a legal, tutelas, etc",
+        "disposition": 13
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 37,
+    "fields": {
+        "name": "Consulta requisitos para nuevo contrato (Movil - Empresa)",
+        "disposition": 13
+    }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 38,
+    "fields": {
+        "name": "Solicitud de permisos. Instalar apk",
+        "disposition": 13
+    }
+}
+]

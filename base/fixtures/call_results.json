@@ -1,0 +1,51 @@
+[
+{
+    "model": "base.callresult",
+    "pk": 1,
+    "fields": {
+        "name": "Caso resuelto"
+    }
+},
+{
+    "model": "base.callresult",
+    "pk": 2,
+    "fields": {
+        "name": "La persona colgó"
+    }
+},
+{
+    "model": "base.callresult",
+    "pk": 3,
+    "fields": {
+        "name": "La persona volverá a llamar"
+    }
+},
+{
+    "model": "base.callresult",
+    "pk": 4,
+    "fields": {
+        "name": "Caso en seguimiento"
+    }
+},
+{
+    "model": "base.callresult",
+    "pk": 5,
+    "fields": {
+        "name": "Llamada caída"
+    }
+},
+{
+    "model": "base.callresult",
+    "pk": 6,
+    "fields": {
+        "name": "Llamada muda"
+    }
+},
+{
+    "model": "base.callresult",
+    "pk": 7,
+    "fields": {
+        "name": "Llamada equivocada"
+    }
+}
+]

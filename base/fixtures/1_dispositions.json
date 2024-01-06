@@ -1,0 +1,93 @@
+[
+{
+    "model": "base.disposition",
+    "pk": 1,
+    "fields": {
+        "name": "Información del producto"
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 2,
+    "fields": {
+        "name": "Relacionado a pagos"
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 3,
+    "fields": {
+        "name": "Fully paid"
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 4,
+    "fields": {
+        "name": "Contrato"
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 5,
+    "fields": {
+        "name": "Lock"
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 6,
+    "fields": {
+        "name": "Errores técnicos"
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 7,
+    "fields": {
+        "name": "Garantías"
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 8,
+    "fields": {
+        "name": "Cambio de SIM - Número"
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 9,
+    "fields": {
+        "name": "Actualización de datos"
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 10,
+    "fields": {
+        "name": "Fraude"
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 11,
+    "fields": {
+        "name": "Abandono del cliente"
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 12,
+    "fields": {
+        "name": "No se comunica el titular - No se atiende requerimiento"
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 13,
+    "fields": {
+        "name": "Otros"
+    }
+}
+]
