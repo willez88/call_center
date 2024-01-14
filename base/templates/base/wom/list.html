@@ -3,7 +3,7 @@
 {% load auth_extra %}
 {% block breadcrumb %}
   <li class="breadcrumb-item active">
-    WOM
+    Formularios
   </li>
 {% endblock %}
 {% block content %}
@@ -29,7 +29,7 @@
               <th>Resultado de la llamada</th>
               <th>Fecha</th>
               {% if request.user|has_group:'Supervisor' %}
-                <th>Proyecto</th>
+                <th>Usuario | Proyecto</th>
               {% endif %}
             </tr>
           </thead>

@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 {% load i18n %}
 {% block breadcrumb %}
-  <li class="breadcrumb-item"><a href="{% url 'users:agent_list'  %}">Agentes</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'users:agent_list'  %}">Usuarios</a></li>
   <li class="breadcrumb-item active">{% if not form.instance.pk %}Registrar{% else %}Actualizar{% endif %}</li>
 {% endblock %}
 {% block content %}
