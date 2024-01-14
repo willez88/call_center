@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth.models import User
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import (
@@ -9,6 +10,11 @@ from django.views.generic import (
     UpdateView
 )
 from django.views.generic.dates import DayArchiveView
+
+from base.models import (
+    CallResult,
+    Subdisposition,
+)
 
 from .forms import WomForm
 from .models import Wom
@@ -231,5 +237,45 @@ class WomDayArchiveView(DayArchiveView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        print(self.object_list)
+        subdispositions = {}
+        for subdisposition in Subdisposition.objects.all():
+            subdispositions[subdisposition.name] = subdisposition
+        total_subdispositions = {}
+        sum_subdispositions = 0
+        for key, value in subdispositions.items():
+            c = 0
+            for wom in self.object_list:
+                if wom.subdisposition.name == value.name:
+                    c = c + 1
+            if c > 0:
+                total_subdispositions[value.name] = (value, c)
+            sum_subdispositions = sum_subdispositions + c
+        context['total_subdispositions'] = total_subdispositions
+        context['sum_subdispositions'] = sum_subdispositions
+
+        total_call_results = {}
+        sum_call_results = 0
+        for call_result in CallResult.objects.all():
+            c = 0
+            for wom in self.object_list:
+                if wom.call_result.name == call_result.name:
+                    c = c + 1
+            if c > 0:
+                total_call_results[call_result.name] = (call_result, c)
+            sum_call_results = sum_call_results + c
+        context['total_call_results'] = total_call_results
+        context['sum_call_results'] = sum_call_results
+
+        total_users = {}
+        sum_users = 0
+        for user in User.objects.filter(groups__name='Agente'):
+            c = 0
+            for wom in self.object_list:
+                if wom.user.username == user.username:
+                    c = c + 1
+            if c > 0:
+                total_users[user.username] = (user, c)
+            sum_users = sum_users + c
+        context['total_users'] = total_users
+        context['sum_users'] = sum_users
         return context

@@ -4,24 +4,75 @@
   <li class="breadcrumb-item">
     <a href="{% url 'base:wom_list' %}">WOM</a>
   </li>
-  <li class="breadcrumb-item active">Registrar</li>
+  <li class="breadcrumb-item active">Por Día</li>
 {% endblock %}
 {% block content %}
-    <h1>{{ day }}</h1>
+  <div class="card">
+    <div class="card-header">
+      {{ day }}
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered display dataTable" style="width:100%;">
+          <caption style="text-align:right">Total: {{ sum_subdispositions }} </caption>
+          <thead>
+            <tr>
+              <th>Disposición | Subdisposición</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for key, value in total_subdispositions.items %}
+              <tr>
+                <td> {{ value.0.disposition.name }} | {{ value.0.name }} </td>
+                <td> {{ value.1 }} </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <br><br>
 
-    <ul>
-        {% for wom in object_list %}
-            <li>{{ wom.date|date:"F j, Y" }}: {{ wom }}</li>
-        {% endfor %}
-    </ul>
+      <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered display dataTable" style="width:100%;">
+          <caption style="text-align:right">Total: {{ sum_call_results }} </caption>
+          <thead>
+            <tr>
+              <th>Resultado de Llamada</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for key, value in total_call_results.items %}
+              <tr>
+                <td> {{ value.0.name }}</td>
+                <td> {{ value.1 }} </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <br><br>
 
-    <p>
-        {% if previous_day %}
-            Previous Day: {{ previous_day }}
-        {% endif %}
-        {% if previous_day and next_day %}--{% endif %}
-        {% if next_day %}
-            Next Day: {{ next_day }}
-        {% endif %}
-    </p>
+      <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered display dataTable" style="width:100%;">
+          <caption style="text-align:right">Total: {{ sum_users }} </caption>
+          <thead>
+            <tr>
+              <th>Agente</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for key, value in total_users.items %}
+              <tr>
+                <td> {{ value.0.username }}</td>
+                <td> {{ value.1 }} </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 {% endblock %}

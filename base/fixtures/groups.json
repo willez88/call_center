@@ -19,8 +19,8 @@
         "name": "Supervisor",
         "permissions": [
             52,
-            57,
-            60
+            53,
+            56
         ]
     }
 }

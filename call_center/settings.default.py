@@ -154,11 +154,11 @@ STATICFILES_DIRS = (
     BASE_DIR / 'static/',
 )
 
-LOGIN_URL = 'user:login'
+LOGIN_URL = 'users:login'
 
 LOGIN_REDIRECT_URL = 'base:home'
 
-LOGOUT_REDIRECT_URL = 'user:login'
+LOGOUT_REDIRECT_URL = 'users:login'
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
