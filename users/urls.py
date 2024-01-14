@@ -2,7 +2,11 @@ from django.contrib.auth import views
 from django.contrib.auth.decorators import login_required
 from django.urls import path, reverse_lazy
 
-from .views import UserUpdateView
+from .views import (
+    AgentFormView,
+    AgentListView,
+    UserUpdateView,
+)
 
 
 app_name = 'users'
@@ -65,4 +69,8 @@ urlpatterns = [
         login_required(UserUpdateView.as_view()),
         name='user_update'
     ),
+
+    path('agents/', AgentListView.as_view(), name='agent_list'),
+
+    path('agents/create/', AgentFormView.as_view(), name='agent_create'),
 ]

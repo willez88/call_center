@@ -1,0 +1,314 @@
+[
+{
+    "model": "base.disposition",
+    "pk": 1,
+    "fields": {
+        "name": "Información del producto",
+        "project": 1
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 2,
+    "fields": {
+        "name": "Relacionado a pagos",
+        "project": 1
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 3,
+    "fields": {
+        "name": "Fully paid",
+        "project": 1
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 4,
+    "fields": {
+        "name": "Contrato",
+        "project": 1
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 5,
+    "fields": {
+        "name": "Lock",
+        "project": 1
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 6,
+    "fields": {
+        "name": "Errores técnicos",
+        "project": 1
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 7,
+    "fields": {
+        "name": "Garantías",
+        "project": 1
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 8,
+    "fields": {
+        "name": "Cambio de SIM - Número",
+        "project": 1
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 9,
+    "fields": {
+        "name": "Actualización de datos",
+        "project": 1
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 10,
+    "fields": {
+        "name": "Fraude",
+        "project": 1
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 11,
+    "fields": {
+        "name": "Abandono del cliente",
+        "project": 1
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 12,
+    "fields": {
+        "name": "No se comunica el titular - No se atiende requerimiento",
+        "project": 1
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 13,
+    "fields": {
+        "name": "Otros",
+        "project": 1
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 14,
+    "fields": {
+        "name": "Información del producto",
+        "project": 3
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 15,
+    "fields": {
+        "name": "Relacionado a pagos",
+        "project": 3
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 16,
+    "fields": {
+        "name": "Fully paid",
+        "project": 3
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 17,
+    "fields": {
+        "name": "Contrato",
+        "project": 3
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 18,
+    "fields": {
+        "name": "Lock",
+        "project": 3
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 19,
+    "fields": {
+        "name": "Errores técnicos",
+        "project": 3
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 20,
+    "fields": {
+        "name": "Garantías",
+        "project": 3
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 21,
+    "fields": {
+        "name": "Cambio de SIM - Número",
+        "project": 3
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 22,
+    "fields": {
+        "name": "Actualización de datos",
+        "project": 3
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 23,
+    "fields": {
+        "name": "Fraude",
+        "project": 3
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 24,
+    "fields": {
+        "name": "Abandono del cliente",
+        "project": 3
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 25,
+    "fields": {
+        "name": "No se comunica el titular - No se atiende requerimiento",
+        "project": 3
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 26,
+    "fields": {
+        "name": "Otros",
+        "project": 3
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 27,
+    "fields": {
+        "name": "Información del producto",
+        "project": 2
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 28,
+    "fields": {
+        "name": "Relacionado a pagos",
+        "project": 2
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 29,
+    "fields": {
+        "name": "Fully paid",
+        "project": 2
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 30,
+    "fields": {
+        "name": "Contrato",
+        "project": 2
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 31,
+    "fields": {
+        "name": "Lock",
+        "project": 2
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 32,
+    "fields": {
+        "name": "Errores técnicos",
+        "project": 2
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 33,
+    "fields": {
+        "name": "Garantías",
+        "project": 2
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 34,
+    "fields": {
+        "name": "Cambio de SIM - Número",
+        "project": 2
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 35,
+    "fields": {
+        "name": "Actualización datos cliente",
+        "project": 2
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 36,
+    "fields": {
+        "name": "Fraude",
+        "project": 2
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 37,
+    "fields": {
+        "name": "Abandono del cliente",
+        "project": 2
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 38,
+    "fields": {
+        "name": "No se comunica el titular - No se atiende requerimiento",
+        "project": 2
+    }
+},
+{
+    "model": "base.disposition",
+    "pk": 39,
+    "fields": {
+        "name": "Otros",
+        "project": 2
+    }
+}
+]

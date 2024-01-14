@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django import forms
 
+from base.models import Project
 
 class UserForm(forms.ModelForm):
     """!
@@ -60,6 +61,15 @@ class UserForm(forms.ModelForm):
         )
     )
 
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        user = User.objects.filter(email=email).exclude(
+            username=self.instance.username
+        )
+        if user:
+            raise forms.ValidationError('El correo ya esta registrado')
+        return email
+
     class Meta:
         """!
         Meta clase del formulario que establece algunas propiedades
@@ -69,3 +79,41 @@ class UserForm(forms.ModelForm):
 
         model = User
         fields = ['username', 'first_name', 'last_name', 'email',]
+
+
+class AgentForm(UserForm):
+    """!
+    Clase que contiene los campos del formulario
+
+    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
+        GNU Public License versión 2 (GPLv2)</a>
+    """
+
+    project = forms.ModelChoiceField(
+        label='Proyecto:',
+        queryset=Project.objects.all(),
+        empty_label='Seleccione...',
+        widget=forms.Select(attrs={
+            'class': 'form-control select2', 'data-toggle': 'tooltip',
+            'title': 'Seleccione el proyecto',
+        })
+    )
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if User.objects.filter(email=email):
+            raise forms.ValidationError('El correo ya está registrado')
+        return email
+
+    class Meta:
+        """!
+        Meta clase del formulario que establece algunas propiedades
+
+        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        """
+
+        model = User
+        fields = [
+            'username', 'first_name', 'last_name', 'email', 'project',
+        ]

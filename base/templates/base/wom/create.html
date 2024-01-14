@@ -30,22 +30,6 @@
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="form-group {% if form.id_number.errors %}has-error{% endif %}">
-              <label class="control-label" for="{{ form.id_number.auto_id }}">
-                {{ form.id_number.label }}
-              </label>
-              <div class="col-sm">
-                <div class="form-inline">
-                  {{ form.id_number }}
-                </div>
-                {% include 'base/form_errors.html' with form_errors=form.id_number.errors col_title_error='col-sm-4' col_msg_error='col-sm-8' %}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-6">
             <div class="form-group {% if form.retailer_name.errors %}has-error{% endif %}">
               <label class="control-label" for="{{ form.retailer_name.auto_id }}">
                 {{ form.retailer_name.label }}
@@ -53,9 +37,25 @@
               <div class="col-sm">
                 <div class="form-inline">
                   {{ form.retailer_name }}
-                  <i class="fas fa-asterisk item-required" aria-hidden="true"></i>
                 </div>
                 {% include 'base/form_errors.html' with form_errors=form.retailer_name.errors col_title_error='col-sm-4' col_msg_error='col-sm-8' %}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group {% if form.id_number.errors %}has-error{% endif %}">
+              <label class="control-label" for="{{ form.id_number.auto_id }}">
+                {{ form.id_number.label }}
+              </label>
+              <div class="col-sm">
+                <div class="form-inline">
+                  {{ form.id_number }}
+                  <i class="fas fa-asterisk item-required" aria-hidden="true"></i>
+                </div>
+                {% include 'base/form_errors.html' with form_errors=form.id_number.errors col_title_error='col-sm-4' col_msg_error='col-sm-8' %}
               </div>
             </div>
           </div>
@@ -87,20 +87,6 @@
                   <i class="fas fa-asterisk item-required" aria-hidden="true"></i>
                 </div>
                 {% include 'base/form_errors.html' with form_errors=form.client_type.errors col_title_error='col-sm-4' col_msg_error='col-sm-8' %}
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group {% if form.call_result.errors %}has-error{% endif %}">
-              <label class="col-sm control-label" for="{{ form.call_result.auto_id }}">
-                {{ form.call_result.label }}
-              </label>
-              <div class="col-sm">
-                <div class="form-inline">
-                  {{ form.call_result }}
-                  <i class="fas fa-asterisk item-required" aria-hidden="true"></i>
-                </div>
-                {% include 'base/form_errors.html' with form_errors=form.call_result.errors col_title_error='col-sm-4' col_msg_error='col-sm-8' %}
               </div>
             </div>
           </div>
@@ -139,16 +125,16 @@
 
           <div class="row">
             <div class="col-sm-6">
-              <div class="form-group {% if form.project.errors %}has-error{% endif %}">
-                <label class="col-sm control-label" for="{{ form.project.auto_id }}">
-                  {{ form.project.label }}
+              <div class="form-group {% if form.call_result.errors %}has-error{% endif %}">
+                <label class="col-sm control-label" for="{{ form.call_result.auto_id }}">
+                  {{ form.call_result.label }}
                 </label>
                 <div class="col-sm">
                   <div class="form-inline">
-                    {{ form.project }}
+                    {{ form.call_result }}
                     <i class="fas fa-asterisk item-required" aria-hidden="true"></i>
                   </div>
-                  {% include 'base/form_errors.html' with form_errors=form.project.errors col_title_error='col-sm-4' col_msg_error='col-sm-8' %}
+                  {% include 'base/form_errors.html' with form_errors=form.call_result.errors col_title_error='col-sm-4' col_msg_error='col-sm-8' %}
                 </div>
               </div>
             </div>

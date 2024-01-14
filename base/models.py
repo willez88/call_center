@@ -88,6 +88,12 @@ class Disposition(models.Model):
         'nombre', max_length=100, db_comment='Nombre la disposición',
     )
 
+    # Relación con el modelo Project
+    project = models.ForeignKey(
+        Project, on_delete=models.CASCADE, verbose_name='proyecto', null=True,
+        db_comment='Relación con el modelo proyecto',
+    )
+
     def __str__(self):
         """!
         Función para representar la clase de forma amigable
@@ -97,7 +103,7 @@ class Disposition(models.Model):
         @return string <b>{object}</b> Objeto con el nombre
         """
 
-        return self.name
+        return self.name + ' | ' + str(self.project)
 
     class Meta:
         """!
@@ -210,12 +216,17 @@ class Wom(models.Model):
 
     # Nombre del minorista
     retailer_name = models.CharField(
-        'nombre del minorista', max_length=100, db_comment='Nombre del minorista',
+        max_length=100, db_comment='Nombre del minorista',
     )
 
     # Teléfono
     phone = models.CharField(
         'teléfono', max_length=20, db_comment='Teléfono',
+    )
+
+    # Fecha
+    date = models.DateField(
+        'fecha', auto_now_add=True, db_comment='Fecha del registro',
     )
 
     # Relación con el modelo ClientType
@@ -234,12 +245,6 @@ class Wom(models.Model):
     call_result = models.ForeignKey(
         CallResult, on_delete=models.CASCADE, verbose_name='resultado de llamada',
         db_comment='Relación con el modelo resultado de llamada',
-    )
-
-    # Relación con el modelo Project
-    project = models.ForeignKey(
-        Project, on_delete=models.CASCADE, verbose_name='proyecto',
-        db_comment='Relación con el modelo proyecto',
     )
 
     # Relación con el modelo User

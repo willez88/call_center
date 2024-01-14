@@ -22,6 +22,11 @@ class ProjectAdmin(admin.ModelAdmin):
     # Mostrar los campos
     list_display = ('name',)
 
+    # Buscar por campos
+    search_fields = (
+        'name',
+    )
+
 
 class ClientTypeAdmin(admin.ModelAdmin):
     """!
@@ -35,6 +40,11 @@ class ClientTypeAdmin(admin.ModelAdmin):
     # Mostrar los campos
     list_display = ('name',)
 
+    # Buscar por campos
+    search_fields = (
+        'name',
+    )
+
 
 class DispositionAdmin(admin.ModelAdmin):
     """!
@@ -46,7 +56,17 @@ class DispositionAdmin(admin.ModelAdmin):
     """
 
     # Mostrar los campos
-    list_display = ('name',)
+    list_display = ('name', 'project',)
+
+    # Buscar por campos
+    search_fields = (
+        'name',
+    )
+
+    # Aplica select2 en campos desplegables
+    autocomplete_fields = (
+        'project',
+    )
 
 
 class SubdispositionAdmin(admin.ModelAdmin):
@@ -61,6 +81,16 @@ class SubdispositionAdmin(admin.ModelAdmin):
     # Mostrar los campos
     list_display = ('name', 'disposition',)
 
+    # Buscar por campos
+    search_fields = (
+        'name',
+    )
+
+    # Aplica select2 en campos desplegables
+    autocomplete_fields = (
+        'disposition',
+    )
+
 
 class CallResultAdmin(admin.ModelAdmin):
     """!
@@ -74,6 +104,11 @@ class CallResultAdmin(admin.ModelAdmin):
     # Mostrar los campos
     list_display = ('name',)
 
+    # Buscar por campos
+    search_fields = (
+        'name',
+    )
+
 
 class WomAdmin(admin.ModelAdmin):
     """!
@@ -85,7 +120,12 @@ class WomAdmin(admin.ModelAdmin):
     """
 
     # Mostrar los campos
-    list_display = ('client_name',)
+    list_display = ('client_name', 'date',)
+
+    # Aplica select2 en campos desplegables
+    autocomplete_fields = (
+        'client_type', 'subdisposition', 'call_result', 'user',
+    )
 
 
 admin.site.register(Project, ProjectAdmin)

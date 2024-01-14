@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 {% load i18n %}
 {% block breadcrumb %}
-  <li class="breadcrumb-item"><a href="#">Usuario</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'users:agent_list'  %}">Agentes</a></li>
   <li class="breadcrumb-item active">{% if not form.instance.pk %}Registrar{% else %}Actualizar{% endif %}</li>
 {% endblock %}
 {% block content %}
@@ -74,16 +74,22 @@
           </div>
         </div>
 
-        {% if form.instance.pk %}
-          {% if request.user.agent.project %}
-            <hr/>
-            <div class="row">
-              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 text-center">
-                <b>Proyecto: {{ request.user.agent.project }}</b>
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+            <div class="form-group {% if form.project.errors %}has-error{% endif %}">
+              <label class="col-xl-5 col-lg-5 col-md-5 col-sm-5 control-label" for="{{ form.project.auto_id }}">
+                {{ form.project.label }}
+                <i class="fas fa-asterisk item-required" aria-hidden="true"></i>
+              </label>
+              <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7">
+                <div class="form-inline">
+                  {{ form.project }}
+                </div>
+                {% include 'base/form_errors.html' with form_errors=form.project.errors col_title_error='col-sm-4' col_msg_error='col-sm-8' %}
               </div>
             </div>
-          {% endif %}
-        {% endif %}
+          </div>
+        </div>
       </div>
       <div class="card-footer small text-right">
         <button type="submit" class="btn btn-primary btn-sm" data-toggle="tooltip">Registrar</button>

@@ -1,16 +1,30 @@
-from django.contrib.auth.models import User
+from django.conf import settings
+from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth.models import (
+    Group,
+    User,
+)
+from django.contrib.sites.shortcuts import get_current_site
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import (
+    FormView,
+    ListView,
     UpdateView,
 )
 
-from .forms import UserForm
+from base.functions import send_email
+
+from .forms import (
+    AgentForm,
+    UserForm
+)
+from .models import Agent
 
 
 class UserUpdateView(UpdateView):
     """!
-    Clase que permite a los usuarios actualizar sus datos de perfil
+    Clase que permite a los usuarios actualizar sus datos
 
     @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
@@ -57,6 +71,36 @@ class UserUpdateView(UpdateView):
         initial_data['email'] = self.object.email
         return initial_data
 
+
+class AgentListView(PermissionRequiredMixin, ListView):
+    """!
+    Clase que permite a usuarios supervisores listar usuarios agentes
+
+    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
+        GNU Public License versión 2 (GPLv2)</a>
+    """
+
+    permission_required = 'users.view_agent'
+    model = Agent
+    template_name = 'users/agents/list.html'
+
+
+class AgentFormView(PermissionRequiredMixin, FormView):
+    """!
+    Clase que permite a usuarios supervisores crear usuarios agentes
+
+    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
+        GNU Public License versión 2 (GPLv2)</a>
+    """
+
+    permission_required = 'users.add_agent'
+    model = User
+    form_class = AgentForm
+    template_name = 'users/agents/create.html'
+    success_url = reverse_lazy('users:agent_list')
+
     def form_valid(self, form):
         """!
         Metodo que valida si el formulario es correcto
@@ -68,8 +112,39 @@ class UserUpdateView(UpdateView):
         @return Retorna el formulario validado
         """
 
-        return super().form_valid(form)
+        self.object = form.save()
+        self.object.username = form.cleaned_data['username']
+        self.object.first_name = form.cleaned_data['first_name']
+        self.object.last_name = form.cleaned_data['last_name']
+        self.object.email = form.cleaned_data['email']
+        password = User.objects.make_random_password()
+        self.object.set_password(password)
+        self.object.is_active = True
+        self.object.save()
+        self.object.groups.add(Group.objects.get(name='Agente'))
+        agent = Agent.objects.create(
+            project=form.cleaned_data['project'],
+            user=self.object
+        )
 
-    def form_invalid(self, form):
-        print(form.errors)
-        return super().form_invalid(form)
+        admin, admin_email = '', ''
+        if settings.ADMINS:
+            admin = settings.ADMINS[0][0]
+            admin_email = settings.ADMINS[0][1]
+
+        send_email(
+            self.object.email, 'users/welcome.mail', 'Bienvenido a Call Center',
+            {
+                'first_name': self.request.user.first_name,
+                'last_name': self.request.user.last_name,
+                'email': self.request.user.email,
+                'username': self.object.username,
+                'password': password,
+                'project': agent.project,
+                'admin': admin,
+                'admin_email': admin_email,
+                'emailapp': settings.EMAIL_HOST_USER,
+                'url': get_current_site(self.request).name
+            }
+        )
+        return super().form_valid(form)

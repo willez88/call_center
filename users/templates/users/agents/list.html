@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+{% load i18n %}
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">
+    Agentes
+  </li>
+{% endblock %}
+{% block content %}
+  <div class="card">
+    <div class="card-header">
+      Listar <a href="{% url 'users:agent_create' %}" class="btn btn-success btn-sm float-right">Registrar</a>
+    </div>
+
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered display dataTable" id="table" style="width:100%;">
+          <thead>
+            <tr>
+              <th>Usuario</th>
+              <th>Nombres y Apellidos</th>
+              <th>Correo Electrónico</th>
+              <th>Proyecto</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for agent in object_list %}
+              <tr>
+                <td> {{ agent.user }} </td>
+                <td> {{ agent.user.first_name }} {{ agent.user.last_name }} </td>
+                <td> {{ agent.user.email }} </td>
+                <td> {{ agent.project }} </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+{% block extra_footer %}
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var table = $('#table').DataTable();
+    });
+  </script>
+{% endblock %}

@@ -104,7 +104,7 @@ Hacer las migraciones
 
     (call_center) ~$ python manage.py migrate
 
-    (call_center) ~$ python manage.py loaddata groups 1_dispositions 2_subdispositions call_results client_types projects
+    (call_center) ~$ python manage.py loaddata groups 1_projects 2_dispositions 3_subdispositions call_results client_types
 
 Crear usuario administrador
 

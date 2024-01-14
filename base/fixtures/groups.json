@@ -4,7 +4,12 @@
     "pk": 1,
     "fields": {
         "name": "Agente",
-        "permissions": []
+        "permissions": [
+            49,
+            50,
+            51,
+            52
+        ]
     }
 },
 {
@@ -12,7 +17,11 @@
     "pk": 2,
     "fields": {
         "name": "Supervisor",
-        "permissions": []
+        "permissions": [
+            52,
+            57,
+            60
+        ]
     }
 }
 ]

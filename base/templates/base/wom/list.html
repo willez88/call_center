@@ -1,5 +1,6 @@
 {% extends 'base/base.html' %}
 {% load i18n %}
+{% load auth_extra %}
 {% block breadcrumb %}
   <li class="breadcrumb-item active">
     WOM
@@ -8,7 +9,10 @@
 {% block content %}
   <div class="card">
     <div class="card-header">
-      Listar <a href="{% url 'base:wom_create' %}" class="btn btn-success btn-sm float-right">Registrar</a>
+      Listar
+      {% if perms.base.add_wom %}
+        <a href="{% url 'base:wom_create' %}" class="btn btn-success btn-sm float-right">Registrar</a>
+      {% endif %}
     </div>
 
     <div class="card-body">
@@ -17,26 +21,36 @@
           <thead>
             <tr>
               <th>Nombre del cliente</th>
+              <th>Retailer Name</th>
               <th>Cédula o DNI</th>
-              <th>Nombre del minorista</th>
               <th>Número de teléfono</th>
               <th>Tipo de cliente</th>
-              <th>Subdisposición</th>
+              <th>Disposición | Subdisposición</th>
               <th>Resultado de la llamada</th>
-              <th>Proyecto</th>
+              <th>Fecha</th>
+              {% if request.user|has_group:'Supervisor' %}
+                <th>Proyecto</th>
+              {% endif %}
             </tr>
           </thead>
           <tbody>
             {% for wom in object_list %}
               <tr>
-                <td><a href="{% url 'base:wom_update' wom.id %}" title="Actualizar">{{ wom.client_name }}</a></td>
-                <td> {{ wom.id_number }} </td>
+                {% if perms.base.change_wom %}
+                  <td><a href="{% url 'base:wom_update' wom.id %}" title="Actualizar">{{ wom.client_name }}</a></td>
+                {% else %}
+                  <td> {{ wom.client_name }} </td>
+                {% endif %}
                 <td> {{ wom.retailer_name }} </td>
+                <td> {{ wom.id_number }} </td>
                 <td> {{ wom.phone }} </td>
                 <td> {{ wom.client_type }} </td>
-                <td> {{ wom.subdisposition }} </td>
+                <td> {{ wom.subdisposition.disposition.name }} | {{ wom.subdisposition }} </td>
                 <td> {{ wom.call_result }} </td>
-                <td> {{ wom.project }} </td>
+                <td> {{ wom.date }} </td>
+                {% if request.user|has_group:'Supervisor' %}
+                  <td> {{ wom.user.agent }} </td>
+                {% endif %}
               </tr>
             {% endfor %}
           </tbody>

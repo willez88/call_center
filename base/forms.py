@@ -4,7 +4,6 @@ from .models import (
     CallResult,
     ClientType,
     Disposition,
-    Project,
     Subdisposition,
     Wom,
 )
@@ -31,15 +30,31 @@ class WomForm(forms.ModelForm):
 
         user = kwargs.pop('user')
         super().__init__(*args, **kwargs)
+        disposition_list = [('', 'Selecione...')]
+        for disposition in Disposition.objects.filter(project=user.agent.project):
+            disposition_list.append((disposition.id, disposition.name))
+        self.fields['disposition'].choices = disposition_list
 
     # Nombre del cliente
     client_name = forms.CharField(
-        label='Nombre del cliente:',
+        label='APP ID - Nombre:',
         max_length=100,
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control input-sm', 'data-toggle': 'tooltip',
                 'title': 'Indique el nombre del cliente',
+            }
+        )
+    )
+
+    # Nombre del minorista
+    retailer_name = forms.CharField(
+        label='Retailer Name:',
+        max_length=100,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control input-sm', 'data-toggle': 'tooltip',
+                'title': 'Indique el nombre del minorista',
             }
         )
     )
@@ -55,18 +70,6 @@ class WomForm(forms.ModelForm):
             }
         ),
         required=False
-    )
-
-    # Nombre del minorista
-    retailer_name = forms.CharField(
-        label='Nombre del minorista:',
-        max_length=100,
-        widget=forms.TextInput(
-            attrs={
-                'class': 'form-control input-sm', 'data-toggle': 'tooltip',
-                'title': 'Indique el nombre del minorista',
-            }
-        )
     )
 
     # Número de teléfono
@@ -127,17 +130,6 @@ class WomForm(forms.ModelForm):
         })
     )
 
-    # Proyecto
-    project = forms.ModelChoiceField(
-        label='Proyecto:',
-        queryset=Project.objects.all(),
-        empty_label='Seleccione...',
-        widget=forms.Select(attrs={
-            'class': 'form-control select2', 'data-toggle': 'tooltip',
-            'title': 'Seleccione el proyecto',
-        })
-    )
-
     class Meta:
         """!
         Meta clase del formulario que establece algunas propiedades
@@ -148,5 +140,5 @@ class WomForm(forms.ModelForm):
         model = Wom
         fields = [
             'client_name', 'id_number', 'retailer_name', 'phone', 'client_type',
-            'subdisposition', 'call_result', 'project',
+            'subdisposition', 'call_result',
         ]
