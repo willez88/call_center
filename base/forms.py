@@ -142,3 +142,21 @@ class WomForm(forms.ModelForm):
             'client_name', 'id_number', 'retailer_name', 'phone', 'client_type',
             'subdisposition', 'call_result',
         ]
+
+
+class SurveyForm(forms.Form):
+    """!
+    Clase que contiene los campos del formulario
+
+    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
+        GNU Public License versión 2 (GPLv2)</a>
+    """
+
+    # Archivo
+    file = forms.FileField(
+        label='Archivo:',
+        widget=forms.ClearableFileInput(attrs={
+            'class': 'custom-file-input',
+        }),
+    )

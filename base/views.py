@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.views.generic import (
     CreateView,
     DeleteView,
+    FormView,
     ListView,
     TemplateView,
     UpdateView
@@ -16,7 +17,10 @@ from base.models import (
     Subdisposition,
 )
 
-from .forms import WomForm
+from .forms import (
+    SurveyForm,
+    WomForm,
+)
 from .models import Wom
 
 
@@ -67,7 +71,9 @@ class WomListView(PermissionRequiredMixin, ListView):
         @return queryset <b>{object}</b> lista de objetos wom asociados al usuario
         """
 
-        if self.request.user.groups.filter(name='Supervisor'):
+        group1 = self.request.user.groups.filter(name='Supervisor')
+        group2 = self.request.user.groups.filter(name='Analista')
+        if group1 or group2:
             return Wom.objects.all()
 
         return Wom.objects.filter(user=self.request.user)
@@ -231,6 +237,15 @@ class WomDeleteView(PermissionRequiredMixin, DeleteView):
 
 
 class WomDayArchiveView(DayArchiveView):
+    """!
+    Clase que permite calcular estadísticas de subdisposiciones, resultado de llamadas
+    y usuarios agentes de forma diaria
+
+    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
+        GNU Public License versión 2 (GPLv2)</a>
+    """
+
     template_name = 'base/wom/archive_day.html'
     queryset = Wom.objects.all()
     date_field = 'date'
@@ -279,3 +294,18 @@ class WomDayArchiveView(DayArchiveView):
         context['total_users'] = total_users
         context['sum_users'] = sum_users
         return context
+
+
+class SurveyFormView(FormView):
+    """!
+    Clase que permite subir archivos y hacer filtros
+
+    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
+        GNU Public License versión 2 (GPLv2)</a>
+    """
+
+    model = User
+    form_class = SurveyForm
+    template_name = 'base/surveys/create.html'
+    success_url = reverse_lazy('base:home')
