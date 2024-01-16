@@ -1,3 +1,5 @@
+import pandas as pd
+
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
@@ -368,7 +370,7 @@ class WomDayArchiveView(PermissionRequiredMixin, DayArchiveView):
         sum_users_wom = 0
         for user in User.objects.filter(groups__name='Agente'):
             c = 0
-            for wom in self.object_list.filter(user__agent__project__name='Wom'):
+            for wom in self.object_list.filter(user__agent__project__name='WOM'):
                 if wom.user.username == user.username:
                     c = c + 1
             if c > 0:
@@ -388,7 +390,28 @@ class SurveyFormView(FormView):
         GNU Public License versión 2 (GPLv2)</a>
     """
 
-    model = User
     form_class = SurveyForm
     template_name = 'base/surveys/create.html'
-    success_url = reverse_lazy('base:home')
+    success_url = reverse_lazy('base:survey_create')
+
+    def form_valid(self, form):
+        """!
+        Función que valida si el formulario está correcto
+
+        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @param self <b>{object}</b> Objeto que instancia la clase
+        @param form <b>{object}</b> Objeto que contiene el formulario
+        @return super <b>{object}</b> Formulario validado
+        """
+
+        df = pd.read_csv(form.cleaned_data['file'], delimiter=';')
+        print(df)
+        return df
+
+    """
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['df'] = self.form_valid()
+        print(context['df'])
+        return context
+    """

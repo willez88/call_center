@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+{% load i18n %}
+{% block breadcrumb %}
+  <li class="breadcrumb-item">
+    Encuentas
+  </li>
+  <li class="breadcrumb-item active">Cargar Archivo</li>
+{% endblock %}
+{% block content %}
+  <div class="card">
+    <div class="card-header">
+      {% if not form.instance.pk %}{% trans 'Registrar' %}{% else %}{% trans 'Actualizar' %}{% endif %}
+    </div>
+    <form action="" role="form" class="form form-horizontal validate-form" method="post" autocomplete="off" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group {% if form.file.errors %}has-error{% endif %}">
+              <label class="control-label" for="{{ form.file.auto_id }}">
+                {{ form.file.label }}
+              </label>
+              <div class="col-sm">
+                <div class="form-inline">
+                  {{ form.file }}
+                  <i class="fas fa-asterisk item-required" aria-hidden="true"></i>
+                </div>
+                {% include 'base/form_errors.html' with form_errors=form.file.errors col_title_error='col-sm-4' col_msg_error='col-sm-8' %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer small text-right">
+        <button type="submit" class="btn btn-primary btn-sm" data-toggle="tooltip">{% if not form.instance.pk %}{% trans 'Registrar' %}{% else %}{% trans 'Actualizar' %}{% endif %}</button>
+      </div>
+    </form>
+  </div>
+  <br>
+{% endblock %}

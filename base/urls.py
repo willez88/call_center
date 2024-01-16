@@ -5,6 +5,7 @@ from .ajax import ComboUpdateView
 from .views import (
     Error403TemplateView,
     HomeTemplateView,
+    SurveyFormView,
     WomDayArchiveView,
     WomCreateView,
     WomDeleteView,
@@ -26,6 +27,7 @@ urlpatterns = [
         'wom/<int:year>/<str:month>/<int:day>/',
         WomDayArchiveView.as_view(), name='archive_day'
     ),
+    # path('surveys/create/', SurveyFormView.as_view(), name='survey_create'),
 
     path(
         'ajax/combo-update/', login_required(ComboUpdateView.as_view()),

@@ -154,9 +154,4 @@ class SurveyForm(forms.Form):
     """
 
     # Archivo
-    file = forms.FileField(
-        label='Archivo:',
-        widget=forms.ClearableFileInput(attrs={
-            'class': 'custom-file-input',
-        }),
-    )
+    file = forms.FileField(label='Archivo:',)
