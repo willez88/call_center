@@ -236,7 +236,7 @@ class WomDeleteView(PermissionRequiredMixin, DeleteView):
         return super().delete(request, *args, **kwargs)
 
 
-class WomDayArchiveView(DayArchiveView):
+class WomDayArchiveView(PermissionRequiredMixin, DayArchiveView):
     """!
     Clase que permite calcular estadísticas de subdisposiciones, resultado de llamadas
     y usuarios agentes de forma diaria
@@ -246,6 +246,7 @@ class WomDayArchiveView(DayArchiveView):
         GNU Public License versión 2 (GPLv2)</a>
     """
 
+    permission_required = 'base.view_wom'
     template_name = 'base/wom/archive_day.html'
     queryset = Wom.objects.all()
     date_field = 'date'
@@ -255,44 +256,126 @@ class WomDayArchiveView(DayArchiveView):
         subdispositions = {}
         for subdisposition in Subdisposition.objects.all():
             subdispositions[subdisposition.name] = subdisposition
-        total_subdispositions = {}
-        sum_subdispositions = 0
+        
+        # Proyecto Colombia
+        total_subdispositions_colombia = {}
+        sum_subdispositions_colombia = 0
         for key, value in subdispositions.items():
             c = 0
-            for wom in self.object_list:
+            for wom in self.object_list.filter(user__agent__project__name='Colombia'):
                 if wom.subdisposition.name == value.name:
                     c = c + 1
             if c > 0:
-                total_subdispositions[value.name] = (value, c)
-            sum_subdispositions = sum_subdispositions + c
-        context['total_subdispositions'] = total_subdispositions
-        context['sum_subdispositions'] = sum_subdispositions
+                total_subdispositions_colombia[value.name] = (value, c)
+            sum_subdispositions_colombia = sum_subdispositions_colombia + c
+        context['total_subdispositions_colombia'] = total_subdispositions_colombia
+        context['sum_subdispositions_colombia'] = sum_subdispositions_colombia
 
-        total_call_results = {}
-        sum_call_results = 0
+        total_call_results_colombia = {}
+        sum_call_results_colombia = 0
         for call_result in CallResult.objects.all():
             c = 0
-            for wom in self.object_list:
+            for wom in self.object_list.filter(user__agent__project__name='Colombia'):
                 if wom.call_result.name == call_result.name:
                     c = c + 1
             if c > 0:
-                total_call_results[call_result.name] = (call_result, c)
-            sum_call_results = sum_call_results + c
-        context['total_call_results'] = total_call_results
-        context['sum_call_results'] = sum_call_results
+                total_call_results_colombia[call_result.name] = (call_result, c)
+            sum_call_results_colombia = sum_call_results_colombia + c
+        context['total_call_results_colombia'] = total_call_results_colombia
+        context['sum_call_results_colombia'] = sum_call_results_colombia
 
-        total_users = {}
-        sum_users = 0
+        total_users_colombia = {}
+        sum_users_colombia = 0
         for user in User.objects.filter(groups__name='Agente'):
             c = 0
-            for wom in self.object_list:
+            for wom in self.object_list.filter(user__agent__project__name='Colombia'):
                 if wom.user.username == user.username:
                     c = c + 1
             if c > 0:
-                total_users[user.username] = (user, c)
-            sum_users = sum_users + c
-        context['total_users'] = total_users
-        context['sum_users'] = sum_users
+                total_users_colombia[user.username] = (user, c)
+            sum_users_colombia = sum_users_colombia + c
+        context['total_users_colombia'] = total_users_colombia
+        context['sum_users_colombia'] = sum_users_colombia
+
+        # Proyecto Perú
+        total_subdispositions_peru = {}
+        sum_subdispositions_peru = 0
+        for key, value in subdispositions.items():
+            c = 0
+            for wom in self.object_list.filter(user__agent__project__name='Perú'):
+                if wom.subdisposition.name == value.name:
+                    c = c + 1
+            if c > 0:
+                total_subdispositions_peru[value.name] = (value, c)
+            sum_subdispositions_peru = sum_subdispositions_peru + c
+        context['total_subdispositions_peru'] = total_subdispositions_peru
+        context['sum_subdispositions_peru'] = sum_subdispositions_peru
+
+        total_call_results_peru = {}
+        sum_call_results_peru = 0
+        for call_result in CallResult.objects.all():
+            c = 0
+            for wom in self.object_list.filter(user__agent__project__name='Perú'):
+                if wom.call_result.name == call_result.name:
+                    c = c + 1
+            if c > 0:
+                total_call_results_peru[call_result.name] = (call_result, c)
+            sum_call_results_peru = sum_call_results_peru + c
+        context['total_call_results_peru'] = total_call_results_peru
+        context['sum_call_results_peru'] = sum_call_results_peru
+
+        total_users_peru = {}
+        sum_users_peru = 0
+        for user in User.objects.filter(groups__name='Agente'):
+            c = 0
+            for wom in self.object_list.filter(user__agent__project__name='Perú'):
+                if wom.user.username == user.username:
+                    c = c + 1
+            if c > 0:
+                total_users_peru[user.username] = (user, c)
+            sum_users_peru = sum_users_peru + c
+        context['total_users_peru'] = total_users_peru
+        context['sum_users_peru'] = sum_users_peru
+
+        # Proyecto Wom
+        total_subdispositions_wom = {}
+        sum_subdispositions_wom = 0
+        for key, value in subdispositions.items():
+            c = 0
+            for wom in self.object_list.filter(user__agent__project__name='WOM'):
+                if wom.subdisposition.name == value.name:
+                    c = c + 1
+            if c > 0:
+                total_subdispositions_wom[value.name] = (value, c)
+            sum_subdispositions_wom = sum_subdispositions_wom + c
+        context['total_subdispositions_wom'] = total_subdispositions_wom
+        context['sum_subdispositions_wom'] = sum_subdispositions_wom
+
+        total_call_results_wom = {}
+        sum_call_results_wom = 0
+        for call_result in CallResult.objects.all():
+            c = 0
+            for wom in self.object_list.filter(user__agent__project__name='WOM'):
+                if wom.call_result.name == call_result.name:
+                    c = c + 1
+            if c > 0:
+                total_call_results_wom[call_result.name] = (call_result, c)
+            sum_call_results_wom = sum_call_results_wom + c
+        context['total_call_results_wom'] = total_call_results_wom
+        context['sum_call_results_wom'] = sum_call_results_wom
+
+        total_users_wom = {}
+        sum_users_wom = 0
+        for user in User.objects.filter(groups__name='Agente'):
+            c = 0
+            for wom in self.object_list.filter(user__agent__project__name='Wom'):
+                if wom.user.username == user.username:
+                    c = c + 1
+            if c > 0:
+                total_users_wom[user.username] = (user, c)
+            sum_users_wom = sum_users_wom + c
+        context['total_users_wom'] = total_users_wom
+        context['sum_users_wom'] = sum_users_wom
         return context
 
 

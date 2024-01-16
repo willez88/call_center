@@ -29,7 +29,8 @@
               <th>Resultado de la llamada</th>
               <th>Fecha</th>
               {% if request.user|has_group:'Supervisor' %}
-                <th>Usuario | Proyecto</th>
+                <th>Agente</th>
+                <th>Proyecto</th>
               {% endif %}
             </tr>
           </thead>
@@ -49,7 +50,8 @@
                 <td> {{ wom.call_result }} </td>
                 <td> {{ wom.date }} </td>
                 {% if request.user|has_group:'Supervisor' %}
-                  <td> {{ wom.user.agent }} </td>
+                  <td> {{ wom.user.first_name }} {{ wom.user.last_name }} </td>
+                  <td> {{ wom.user.agent.project }} </td>
                 {% endif %}
               </tr>
             {% endfor %}
@@ -63,6 +65,7 @@
   <script type="text/javascript">
     $(document).ready(function() {
       var table = $('#table').DataTable();
+      button_datatable(table);
     });
   </script>
 {% endblock %}

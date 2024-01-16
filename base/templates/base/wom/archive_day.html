@@ -9,70 +9,235 @@
 {% block content %}
   <div class="card">
     <div class="card-header">
-      {{ day }}
+      {{ day }}<br>
+      Colombia
     </div>
     <div class="card-body">
-      <div class="table-responsive">
-        <table class="table table-striped table-hover table-bordered display dataTable" style="width:100%;">
-          <caption style="text-align:right">Total: {{ sum_subdispositions }} </caption>
-          <thead>
-            <tr>
-              <th>Disposición | Subdisposición</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for key, value in total_subdispositions.items %}
-              <tr>
-                <td> {{ value.0.disposition.name }} | {{ value.0.name }} </td>
-                <td> {{ value.1 }} </td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered display dataTable" style="width:100%;">
+              <caption style="text-align:right">Total: {{ sum_subdispositions_colombia }} </caption>
+              <thead>
+                <tr>
+                  <th>Disposición | Subdisposición</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for key, value in total_subdispositions_colombia.items %}
+                  <tr>
+                    <td> {{ value.0.disposition.name }} | {{ value.0.name }} </td>
+                    <td> {{ value.1 }} </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered display dataTable" style="width:100%;">
+              <caption style="text-align:right">Total: {{ sum_call_results_colombia }} </caption>
+              <thead>
+                <tr>
+                  <th>Resultado de Llamada</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for key, value in total_call_results_colombia.items %}
+                  <tr>
+                    <td> {{ value.0.name }} </td>
+                    <td> {{ value.1 }} </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-      <br><br>
 
-      <div class="table-responsive">
-        <table class="table table-striped table-hover table-bordered display dataTable" style="width:100%;">
-          <caption style="text-align:right">Total: {{ sum_call_results }} </caption>
-          <thead>
-            <tr>
-              <th>Resultado de Llamada</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for key, value in total_call_results.items %}
-              <tr>
-                <td> {{ value.0.name }}</td>
-                <td> {{ value.1 }} </td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-      <br><br>
-
-      <div class="table-responsive">
-        <table class="table table-striped table-hover table-bordered display dataTable" style="width:100%;">
-          <caption style="text-align:right">Total: {{ sum_users }} </caption>
-          <thead>
-            <tr>
-              <th>Agente</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for key, value in total_users.items %}
-              <tr>
-                <td> {{ value.0.username }}</td>
-                <td> {{ value.1 }} </td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered display dataTable" style="width:100%;">
+              <caption style="text-align:right">Total: {{ sum_users_colombia }} </caption>
+              <thead>
+                <tr>
+                  <th>Agente</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for key, value in total_users_colombia.items %}
+                  <tr>
+                    <td> {{ value.0.first_name }} {{ value.0.last_name }} </td>
+                    <td> {{ value.1 }} </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  <br>
+
+  <div class="card">
+    <div class="card-header">
+      {{ day }}<br>
+      Perú
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered display dataTable" style="width:100%;">
+              <caption style="text-align:right">Total: {{ sum_subdispositions_peru }} </caption>
+              <thead>
+                <tr>
+                  <th>Disposición | Subdisposición</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for key, value in total_subdispositions_peru.items %}
+                  <tr>
+                    <td> {{ value.0.disposition.name }} | {{ value.0.name }} </td>
+                    <td> {{ value.1 }} </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered display dataTable" style="width:100%;">
+              <caption style="text-align:right">Total: {{ sum_call_results_peru }} </caption>
+              <thead>
+                <tr>
+                  <th>Resultado de Llamada</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for key, value in total_call_results_peru.items %}
+                  <tr>
+                    <td> {{ value.0.name }} </td>
+                    <td> {{ value.1 }} </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered display dataTable" style="width:100%;">
+              <caption style="text-align:right">Total: {{ sum_users_peru }} </caption>
+              <thead>
+                <tr>
+                  <th>Agente</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for key, value in total_users_peru.items %}
+                  <tr>
+                    <td> {{ value.0.first_name }} {{ value.0.last_name }} </td>
+                    <td> {{ value.1 }} </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="card">
+    <div class="card-header">
+      {{ day }}<br>
+      Wom
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered display dataTable" style="width:100%;">
+              <caption style="text-align:right">Total: {{ sum_subdispositions_wom }} </caption>
+              <thead>
+                <tr>
+                  <th>Disposición | Subdisposición</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for key, value in total_subdispositions_wom.items %}
+                  <tr>
+                    <td> {{ value.0.disposition.name }} | {{ value.0.name }} </td>
+                    <td> {{ value.1 }} </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered display dataTable" style="width:100%;">
+              <caption style="text-align:right">Total: {{ sum_call_results_wom }} </caption>
+              <thead>
+                <tr>
+                  <th>Resultado de Llamada</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for key, value in total_call_results_wom.items %}
+                  <tr>
+                    <td> {{ value.0.name }} </td>
+                    <td> {{ value.1 }} </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered display dataTable" style="width:100%;">
+              <caption style="text-align:right">Total: {{ sum_users_wom }} </caption>
+              <thead>
+                <tr>
+                  <th>Agente</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for key, value in total_users_wom.items %}
+                  <tr>
+                    <td> {{ value.0.first_name }} {{ value.0.last_name }} </td>
+                    <td> {{ value.1 }} </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
 {% endblock %}

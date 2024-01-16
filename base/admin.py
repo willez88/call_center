@@ -120,7 +120,10 @@ class WomAdmin(admin.ModelAdmin):
     """
 
     # Mostrar los campos
-    list_display = ('client_name', 'date',)
+    list_display = (
+        'client_name', 'id_number', 'retailer_name', 'phone', 'date',
+        'client_type', 'subdisposition', 'call_result', 'user',
+    )
 
     # Aplica select2 en campos desplegables
     autocomplete_fields = (
