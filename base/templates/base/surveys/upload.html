@@ -16,6 +16,20 @@
       <div class="card-body">
         <div class="row">
           <div class="col-sm-6">
+            <div class="form-group {% if form.project.errors %}has-error{% endif %}">
+              <label class="control-label" for="{{ form.project.auto_id }}">
+                {{ form.project.label }}
+              </label>
+              <div class="col-sm">
+                <div class="form-inline">
+                  {{ form.project }}
+                  <i class="fas fa-asterisk item-required" aria-hidden="true"></i>
+                </div>
+                {% include 'base/form_errors.html' with form_errors=form.project.errors col_title_error='col-sm-4' col_msg_error='col-sm-8' %}
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
             <div class="form-group {% if form.file.errors %}has-error{% endif %}">
               <label class="control-label" for="{{ form.file.auto_id }}">
                 {{ form.file.label }}
@@ -32,7 +46,7 @@
         </div>
       </div>
       <div class="card-footer small text-right">
-        <button type="submit" class="btn btn-primary btn-sm" data-toggle="tooltip">{% if not form.instance.pk %}{% trans 'Registrar' %}{% else %}{% trans 'Actualizar' %}{% endif %}</button>
+        <button type="submit" class="btn btn-primary btn-sm" data-toggle="tooltip">{% if not form.instance.pk %}{% trans 'Cargar' %}{% else %}{% trans 'Actualizar' %}{% endif %}</button>
       </div>
     </form>
   </div>

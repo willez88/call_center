@@ -23,5 +23,15 @@
             56
         ]
     }
+},
+{
+    "model": "auth.group",
+    "pk": 3,
+    "fields": {
+        "name": "Analista",
+        "permissions": [
+            52
+        ]
+    }
 }
 ]

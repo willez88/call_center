@@ -1,8 +1,9 @@
 import pandas as pd
 
+from datetime import datetime
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth.models import User
-from django.shortcuts import redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import (
     CreateView,
@@ -16,6 +17,7 @@ from django.views.generic.dates import DayArchiveView
 
 from base.models import (
     CallResult,
+    Project,
     Subdisposition,
 )
 
@@ -381,7 +383,7 @@ class WomDayArchiveView(PermissionRequiredMixin, DayArchiveView):
         return context
 
 
-class SurveyFormView(FormView):
+class SurveyFormView(PermissionRequiredMixin, FormView):
     """!
     Clase que permite subir archivos y hacer filtros
 
@@ -390,28 +392,44 @@ class SurveyFormView(FormView):
         GNU Public License versión 2 (GPLv2)</a>
     """
 
+    permission_required = 'base.view_wom'
     form_class = SurveyForm
-    template_name = 'base/surveys/create.html'
-    success_url = reverse_lazy('base:survey_create')
+    template_name = 'base/surveys/upload.html'
 
-    def form_valid(self, form):
-        """!
-        Función que valida si el formulario está correcto
-
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
-        @param self <b>{object}</b> Objeto que instancia la clase
-        @param form <b>{object}</b> Objeto que contiene el formulario
-        @return super <b>{object}</b> Formulario validado
-        """
-
-        df = pd.read_csv(form.cleaned_data['file'], delimiter=';')
-        print(df)
-        return df
-
-    """
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['df'] = self.form_valid()
-        print(context['df'])
-        return context
-    """
+    def post(self, request, *args, **kwargs):
+        project = request.POST.get('project')
+        project = get_object_or_404(Project, pk=project)
+        df = pd.read_csv(request.FILES['file'], delimiter=';')
+        surveys = [list(row) for row in df.values]
+        results = {}
+        question1 = 0
+        question2 = 0
+        question3 = 0
+        question4 = 0
+        question5 = 0
+        for survey in surveys:
+            date = str(survey[3])
+            if date != 'nan':
+                date = datetime.strptime(date, '%d/%m/%Y')
+                woms = Wom.objects.filter(
+                    date=date, phone=survey[1], user__agent__project=project,
+                )
+                for wom in woms:
+                    if 1 == survey[4]:
+                        question1 = question1 + 1
+                        results[wom.subdisposition.name] = (wom.subdisposition, question1, '', '', '', '')
+                    elif 2 == survey[4]:
+                        question2 = question2 + 1
+                        results[wom.subdisposition.name] = (wom.subdisposition, '', question2, '', '', '')
+                    elif 3 == survey[4]:
+                        question3 = question3 + 1
+                        results[wom.subdisposition.name] = (wom.subdisposition, '', '', question3, '', '')
+                    elif 4 == survey[4]:
+                        question4 = question4 + 1
+                        results[wom.subdisposition.name] = (wom.subdisposition, '', '', '', question4, '')
+                    elif 5 == survey[4]:
+                        question5 = question5 + 1
+                        results[wom.subdisposition.name] = (wom.subdisposition, '', '', '', '', question5)
+        return render(
+            request, 'base/surveys/result.html', {'results': results, 'project': project}
+        )

@@ -253,6 +253,20 @@ class Wom(models.Model):
         db_comment='Relación con el modelo usuario',
     )
 
+    def get_project(self):
+        """!
+        Función que obtiene el proyecto de un agente
+
+        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @param self <b>{object}</b> Objeto que instancia la clase
+        @return string <b>object</b> Objeto con el correo
+        """
+
+        return self.user.agent.project
+
+    # Agrega una descripción corta al nombre de la Función
+    get_project.short_description = 'proyecto'
+
     def __str__(self):
         """!
         Función para representar la clase de forma amigable

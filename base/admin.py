@@ -122,7 +122,12 @@ class WomAdmin(admin.ModelAdmin):
     # Mostrar los campos
     list_display = (
         'client_name', 'id_number', 'retailer_name', 'phone', 'date',
-        'client_type', 'subdisposition', 'call_result', 'user',
+        'client_type', 'subdisposition', 'call_result', 'user', 'get_project',
+    )
+
+    # Buscar por campos
+    search_fields = (
+        'client_name', 'id_number', 'phone',
     )
 
     # Aplica select2 en campos desplegables

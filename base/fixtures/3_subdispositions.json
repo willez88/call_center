@@ -934,5 +934,13 @@
         "name": "Indecopi: Otros",
         "disposition": 39
     }
+},
+{
+    "model": "base.subdisposition",
+    "pk": 118,
+    "fields": {
+        "name": "No se comunica el titular - No se atiende requerimiento",
+        "disposition": 38
+    }
 }
 ]

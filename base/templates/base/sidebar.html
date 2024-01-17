@@ -14,9 +14,15 @@
           <span>Formularios</span>
         </a>
       </li>
+      <li class="nav-item" id="survey">
+        <a class="nav-link" href="{% url 'base:survey_upload' %}">
+          <i class="fas fa-fw fa-user-plus"></i>
+          <span>Cargar Archivo</span>
+        </a>
+      </li>
     {% endif %}
     {% if perms.users.view_agent %}
-      <li class="nav-item" id="agente">
+      <li class="nav-item" id="agent">
         <a class="nav-link" href="{% url 'users:agent_list' %}">
           <i class="fas fa-fw fa-user-plus"></i>
           <span>Usuarios</span>

@@ -1,6 +1,7 @@
 Django==4.2
 django-extensions==3.2.1
 django-auditlog==2.3.0
+pandas==2.1.4
 pymysql==1.1.0
 mysqlclient==2.1.1
 ndg-httpsclient==0.5.1

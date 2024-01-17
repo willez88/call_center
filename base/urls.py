@@ -27,7 +27,7 @@ urlpatterns = [
         'wom/<int:year>/<str:month>/<int:day>/',
         WomDayArchiveView.as_view(), name='archive_day'
     ),
-    # path('surveys/create/', SurveyFormView.as_view(), name='survey_create'),
+    path('surveys/upload/', SurveyFormView.as_view(), name='survey_upload'),
 
     path(
         'ajax/combo-update/', login_required(ComboUpdateView.as_view()),

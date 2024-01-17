@@ -4,6 +4,7 @@ from .models import (
     CallResult,
     ClientType,
     Disposition,
+    Project,
     Subdisposition,
     Wom,
 )
@@ -152,6 +153,16 @@ class SurveyForm(forms.Form):
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
+
+    project = forms.ModelChoiceField(
+        label='Proyecto:',
+        queryset=Project.objects.all(),
+        empty_label='Seleccione...',
+        widget=forms.Select(attrs={
+            'class': 'form-control select2', 'data-toggle': 'tooltip',
+            'title': 'Seleccione el proyecto',
+        })
+    )
 
     # Archivo
     file = forms.FileField(label='Archivo:',)
