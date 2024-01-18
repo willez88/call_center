@@ -5,6 +5,7 @@ from .ajax import ComboUpdateView
 from .views import (
     CalendarTemplateView,
     Error403TemplateView,
+    Error404TemplateView,
     HomeTemplateView,
     SurveyFormView,
     WomDayArchiveView,
@@ -19,6 +20,7 @@ app_name = 'base'
 urlpatterns = [
     path('', HomeTemplateView.as_view(), name='home'),
     path('error-403/', Error403TemplateView.as_view(), name='error_403'),
+    path('404/', Error404TemplateView.as_view(), name='error_403'),
 
     path('wom/', WomListView.as_view(), name='wom_list'),
     path('wom/create/', WomCreateView.as_view(), name='wom_create'),

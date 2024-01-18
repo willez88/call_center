@@ -49,7 +49,19 @@ class Error403TemplateView(TemplateView):
         GNU Public License versión 2 (GPLv2)</a>
     """
 
-    template_name = 'base/error_403.html'
+    template_name = 'base/403.html'
+
+
+class Error404TemplateView(TemplateView):
+    """!
+    Clase que muestra la página de error 404
+
+    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
+        GNU Public License versión 2 (GPLv2)</a>
+    """
+
+    template_name = 'base/404.html'
 
 
 class WomListView(PermissionRequiredMixin, ListView):
@@ -267,6 +279,11 @@ class WomDayArchiveView(DayArchiveView):
         @return Redirecciona al usuario a la página de error de permisos 
         """
 
+        woms = Wom.objects.filter(
+            date=datetime(kwargs['year'], kwargs['month'], kwargs['day'])
+        )
+        if not woms:
+            return redirect('base:error_403')
         if self.request.user.groups.filter(name='Supervisor') or self.request.user.is_staff:
             return super().dispatch(request, *args, **kwargs)
         return redirect('base:error_403')
