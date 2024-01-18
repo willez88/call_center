@@ -77,9 +77,8 @@ class WomListView(PermissionRequiredMixin, ListView):
 
         group1 = self.request.user.groups.filter(name='Supervisor')
         group2 = self.request.user.groups.filter(name='Analista')
-        if group1 or group2:
+        if group1 or group2 or self.request.user.is_staff:
             return Wom.objects.all()
-
         return Wom.objects.filter(user=self.request.user)
 
 
@@ -240,7 +239,7 @@ class WomDeleteView(PermissionRequiredMixin, DeleteView):
         return super().delete(request, *args, **kwargs)
 
 
-class WomDayArchiveView(PermissionRequiredMixin, DayArchiveView):
+class WomDayArchiveView(DayArchiveView):
     """!
     Clase que permite calcular estadísticas de subdisposiciones, resultado de llamadas
     y usuarios agentes de forma diaria
@@ -250,10 +249,28 @@ class WomDayArchiveView(PermissionRequiredMixin, DayArchiveView):
         GNU Public License versión 2 (GPLv2)</a>
     """
 
-    permission_required = 'base.view_wom'
     template_name = 'base/wom/archive_day.html'
     queryset = Wom.objects.all()
     date_field = 'date'
+    month_format = '%m'
+    make_object_list = True
+
+    def dispatch(self, request, *args, **kwargs):
+        """!
+        Metodo que valida si el usuario del sistema tiene permisos para entrar
+        a esta vista
+
+        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @param self <b>{object}</b> Objeto que instancia la clase
+        @param request <b>{object}</b> Objeto que contiene la petición
+        @param *args <b>{tupla}</b> Tupla de valores, inicialmente vacia
+        @param **kwargs <b>{dict}</b> Diccionario de datos, inicialmente vacio
+        @return Redirecciona al usuario a la página de error de permisos 
+        """
+
+        if self.request.user.groups.filter(name='Supervisor'):
+            return super().dispatch(request, *args, **kwargs)
+        return redirect('base:error_403')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -383,7 +400,7 @@ class WomDayArchiveView(PermissionRequiredMixin, DayArchiveView):
         return context
 
 
-class SurveyFormView(PermissionRequiredMixin, FormView):
+class SurveyFormView(FormView):
     """!
     Clase que permite subir archivos y hacer filtros
 
@@ -392,9 +409,25 @@ class SurveyFormView(PermissionRequiredMixin, FormView):
         GNU Public License versión 2 (GPLv2)</a>
     """
 
-    permission_required = 'base.view_wom'
     form_class = SurveyForm
     template_name = 'base/surveys/upload.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        """!
+        Metodo que valida si el usuario del sistema tiene permisos para entrar
+        a esta vista
+
+        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @param self <b>{object}</b> Objeto que instancia la clase
+        @param request <b>{object}</b> Objeto que contiene la petición
+        @param *args <b>{tupla}</b> Tupla de valores, inicialmente vacia
+        @param **kwargs <b>{dict}</b> Diccionario de datos, inicialmente vacio
+        @return Redirecciona al usuario a la página de error de permisos 
+        """
+
+        if self.request.user.groups.filter(name='Supervisor'):
+            return super().dispatch(request, *args, **kwargs)
+        return redirect('base:error_403')
 
     def post(self, request, *args, **kwargs):
         project = request.POST.get('project')
@@ -433,3 +466,15 @@ class SurveyFormView(PermissionRequiredMixin, FormView):
         return render(
             request, 'base/surveys/result.html', {'results': results, 'project': project}
         )
+
+
+class CalendarTemplateView(TemplateView):
+    """!
+    Clase que muestra el calendario
+
+    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
+        GNU Public License versión 2 (GPLv2)</a>
+    """
+
+    template_name = 'base/calendar.html'
