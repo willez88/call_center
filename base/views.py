@@ -253,7 +253,6 @@ class WomDayArchiveView(DayArchiveView):
     queryset = Wom.objects.all()
     date_field = 'date'
     month_format = '%m'
-    make_object_list = True
 
     def dispatch(self, request, *args, **kwargs):
         """!
@@ -268,7 +267,7 @@ class WomDayArchiveView(DayArchiveView):
         @return Redirecciona al usuario a la página de error de permisos 
         """
 
-        if self.request.user.groups.filter(name='Supervisor'):
+        if self.request.user.groups.filter(name='Supervisor') or self.request.user.is_staff:
             return super().dispatch(request, *args, **kwargs)
         return redirect('base:error_403')
 
@@ -425,7 +424,7 @@ class SurveyFormView(FormView):
         @return Redirecciona al usuario a la página de error de permisos 
         """
 
-        if self.request.user.groups.filter(name='Supervisor'):
+        if self.request.user.groups.filter(name='Supervisor') or self.request.user.is_staff:
             return super().dispatch(request, *args, **kwargs)
         return redirect('base:error_403')
 
