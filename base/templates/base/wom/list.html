@@ -28,7 +28,7 @@
               <th>Disposición | Subdisposición</th>
               <th>Resultado de la llamada</th>
               <th>Fecha</th>
-              {% if request.user|has_group:'Supervisor' or request.user|has_group:'Analista' %}
+              {% if request.user|has_group:'Supervisor' or request.user|has_group:'Analista' or request.user.is_staff %}
                 <th>Agente</th>
                 <th>Proyecto</th>
               {% endif %}
@@ -49,7 +49,7 @@
                 <td> {{ wom.subdisposition.disposition.name }} | {{ wom.subdisposition }} </td>
                 <td> {{ wom.call_result }} </td>
                 <td> {{ wom.date }} </td>
-                {% if request.user|has_group:'Supervisor' or request.user|has_group:'Analista' %}
+                {% if request.user|has_group:'Supervisor' or request.user|has_group:'Analista' or request.user.is_staff %}
                   <td> {{ wom.user.first_name }} {{ wom.user.last_name }} </td>
                   <td> {{ wom.user.agent.project }} </td>
                 {% endif %}
@@ -64,7 +64,65 @@
 {% block extra_footer %}
   <script type="text/javascript">
     $(document).ready(function() {
-      var table = $('#table').DataTable();
+      // Setup - add a text input to each footer cell
+      $('#table thead tr')
+          .clone(true)
+          .addClass('filters')
+          .appendTo('#table thead');
+
+      var table = $('#table').DataTable({
+        orderCellsTop: true,
+        fixedHeader: true,
+        initComplete: function () {
+          var api = this.api();
+
+          // For each column
+          api
+            .columns()
+            .eq(0)
+            .each(function (colIdx) {
+              // Set the header cell to contain the input element
+              var cell = $('.filters th').eq(
+                $(api.column(colIdx).header()).index()
+              );
+              var title = $(cell).text();
+              $(cell).html('<input type="text" placeholder="Buscar..." />');
+
+              // On every keypress in this input
+              $(
+                'input',
+                $('.filters th').eq($(api.column(colIdx).header()).index())
+              )
+                .off('keyup change')
+                .on('change', function (e) {
+                  // Get the search value
+                  $(this).attr('title', $(this).val());
+                  var regexr = '({search})'; //$(this).parents('th').find('select').val();
+
+                  var cursorPosition = this.selectionStart;
+                  // Search the column for that value
+                  api
+                    .column(colIdx)
+                    .search(
+                      this.value != ''
+                        ? regexr.replace('{search}', '(((' + this.value + ')))')
+                        : '',
+                      this.value != '',
+                      this.value == ''
+                    )
+                    .draw();
+                })
+                .on('keyup', function (e) {
+                  e.stopPropagation();
+
+                  $(this).trigger('change');
+                  $(this)
+                    .focus()[0]
+                    .setSelectionRange(cursorPosition, cursorPosition);
+                });
+            });
+        },
+      });
       button_datatable(table);
     });
   </script>
