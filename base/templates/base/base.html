@@ -62,6 +62,9 @@
           // rutas de encuestas
           const survey_upload = '/surveys/upload/';
 
+          // rutas de calendarios
+          const calendar_list = '/calendars/';
+
           // rutas de usuario agentes
           const agent_list = '/users/agents/';
           const agent_create = '/users/agents/create/';
@@ -71,6 +74,9 @@
           }
           else if( route == wom_list || route == wom_create || route == wom_update || route == wom_delete ) {
             $('#wom').addClass('active');
+          }
+          else if ( route == calendar_list ) {
+            $('#calendar').addClass('active');
           }
           else if( route == survey_upload ) {
             $('#survey').addClass('active');
