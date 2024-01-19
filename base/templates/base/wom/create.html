@@ -23,7 +23,6 @@
               <div class="col-sm">
                 <div class="form-inline">
                   {{ form.client_name }}
-                  <i class="fas fa-asterisk item-required" aria-hidden="true"></i>
                 </div>
                 {% include 'base/form_errors.html' with form_errors=form.client_name.errors col_title_error='col-sm-4' col_msg_error='col-sm-8' %}
               </div>
@@ -53,7 +52,6 @@
               <div class="col-sm">
                 <div class="form-inline">
                   {{ form.id_number }}
-                  <i class="fas fa-asterisk item-required" aria-hidden="true"></i>
                 </div>
                 {% include 'base/form_errors.html' with form_errors=form.id_number.errors col_title_error='col-sm-4' col_msg_error='col-sm-8' %}
               </div>

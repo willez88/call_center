@@ -205,7 +205,8 @@ class Wom(models.Model):
 
     # Nombre del cliente
     client_name = models.CharField(
-        'nombre del cliente', max_length=100, db_comment='Nombre del cliente',
+        'nombre del cliente', max_length=100, blank=True,
+        db_comment='Nombre del cliente',
     )
 
     # Cédula o dni
@@ -216,7 +217,7 @@ class Wom(models.Model):
 
     # Nombre del minorista
     retailer_name = models.CharField(
-        max_length=100, db_comment='Nombre del minorista',
+        max_length=100, blank=True, db_comment='Nombre del minorista',
     )
 
     # Teléfono

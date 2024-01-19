@@ -45,7 +45,8 @@ class WomForm(forms.ModelForm):
                 'class': 'form-control input-sm', 'data-toggle': 'tooltip',
                 'title': 'Indique el nombre del cliente',
             }
-        )
+        ),
+        required=False
     )
 
     # Nombre del minorista
@@ -57,7 +58,8 @@ class WomForm(forms.ModelForm):
                 'class': 'form-control input-sm', 'data-toggle': 'tooltip',
                 'title': 'Indique el nombre del minorista',
             }
-        )
+        ),
+        required=False
     )
 
     # Cédula o dni
