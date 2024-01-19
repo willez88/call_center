@@ -28,7 +28,7 @@
               <th>Disposición | Subdisposición</th>
               <th>Resultado de la llamada</th>
               <th>Fecha</th>
-              {% if request.user|has_group:'Supervisor' or request.user|has_group:'Analista' or request.user.is_staff %}
+              {% if request.user|has_group:'Supervisor' or request.user|has_group:'Analista' %}
                 <th>Agente</th>
                 <th>Proyecto</th>
               {% endif %}
@@ -49,7 +49,7 @@
                 <td> {{ wom.subdisposition.disposition.name }} | {{ wom.subdisposition }} </td>
                 <td> {{ wom.call_result }} </td>
                 <td> {{ wom.date }} </td>
-                {% if request.user|has_group:'Supervisor' or request.user|has_group:'Analista' or request.user.is_staff %}
+                {% if request.user|has_group:'Supervisor' or request.user|has_group:'Analista' %}
                   <td> {{ wom.user.first_name }} {{ wom.user.last_name }} </td>
                   <td> {{ wom.user.agent.project }} </td>
                 {% endif %}

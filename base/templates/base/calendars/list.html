@@ -23,7 +23,7 @@
       calendar.render();
       calendar.on('dateClick', function(date) {
         date = date.dateStr;
-        window.location.href = `/calendar/${date.replaceAll('-', '/')}/`;
+        window.location.href = `{% url 'base:calendar' %}${date.replaceAll('-', '/')}/`;
       });
     });
   </script>

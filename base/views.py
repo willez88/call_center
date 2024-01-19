@@ -89,7 +89,7 @@ class WomListView(PermissionRequiredMixin, ListView):
 
         group1 = self.request.user.groups.filter(name='Supervisor')
         group2 = self.request.user.groups.filter(name='Analista')
-        if group1 or group2 or self.request.user.is_staff:
+        if group1 or group2:
             return Wom.objects.all()
         return Wom.objects.filter(user=self.request.user)
 
@@ -261,7 +261,7 @@ class WomDayArchiveView(DayArchiveView):
         GNU Public License versión 2 (GPLv2)</a>
     """
 
-    template_name = 'base/wom/archive_day.html'
+    template_name = 'base/calendars/archive_day.html'
     queryset = Wom.objects.all()
     date_field = 'date'
     month_format = '%m'
@@ -284,7 +284,7 @@ class WomDayArchiveView(DayArchiveView):
         )
         if not woms:
             return redirect('base:error_403')
-        if self.request.user.groups.filter(name='Supervisor') or self.request.user.is_staff:
+        if self.request.user.groups.filter(name='Supervisor'):
             return super().dispatch(request, *args, **kwargs)
         return redirect('base:error_403')
 
@@ -441,7 +441,7 @@ class SurveyFormView(FormView):
         @return Redirecciona al usuario a la página de error de permisos 
         """
 
-        if self.request.user.groups.filter(name='Supervisor') or self.request.user.is_staff:
+        if self.request.user.groups.filter(name='Supervisor'):
             return super().dispatch(request, *args, **kwargs)
         return redirect('base:error_403')
 
@@ -493,4 +493,4 @@ class CalendarTemplateView(TemplateView):
         GNU Public License versión 2 (GPLv2)</a>
     """
 
-    template_name = 'base/calendar.html'
+    template_name = 'base/calendars/list.html'

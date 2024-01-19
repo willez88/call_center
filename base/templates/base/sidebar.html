@@ -15,7 +15,7 @@
         </a>
       </li>
     {% endif %}
-    {% if request.user|has_group:'Supervisor' or request.user.is_staff %}
+    {% if request.user|has_group:'Supervisor' %}
       <li class="nav-item" id="survey">
         <a class="nav-link" href="{% url 'base:survey_upload' %}">
           <i class="fas fa-fw fa-upload"></i>
