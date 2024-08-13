@@ -7,7 +7,7 @@ class UserForm(forms.ModelForm):
     """!
     Clase que contiene los campos del formulario
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -74,7 +74,7 @@ class UserForm(forms.ModelForm):
         """!
         Meta clase del formulario que establece algunas propiedades
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         """
 
         model = User
@@ -85,7 +85,7 @@ class AgentForm(UserForm):
     """!
     Clase que contiene los campos del formulario
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -110,7 +110,7 @@ class AgentForm(UserForm):
         """!
         Meta clase del formulario que establece algunas propiedades
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         """
 
         model = User

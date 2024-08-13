@@ -8,7 +8,7 @@ class Agent(models.Model):
     """!
     Clase que contiene los datos de un agente
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -29,7 +29,7 @@ class Agent(models.Model):
         """!
         Función para representar la clase de forma amigable
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @return string <b>{object}</b> Objeto con el valor
         """
@@ -40,7 +40,7 @@ class Agent(models.Model):
         """!
         Meta clase del modelo que establece algunas propiedades
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         """
 
         verbose_name = 'Agente'

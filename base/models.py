@@ -6,7 +6,7 @@ class Project(models.Model):
     """!
     Clase que contiene los proyectos
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -20,7 +20,7 @@ class Project(models.Model):
         """!
         Función para representar la clase de forma amigable
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @return string <b>{object}</b> Objeto con el nombre
         """
@@ -31,7 +31,7 @@ class Project(models.Model):
         """!
         Meta clase del modelo que establece algunas propiedades
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         """
 
         verbose_name = 'Proyecto'
@@ -42,7 +42,7 @@ class ClientType(models.Model):
     """!
     Clase que contiene el tipo de cliente
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -56,7 +56,7 @@ class ClientType(models.Model):
         """!
         Función para representar la clase de forma amigable
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @return string <b>{object}</b> Objeto con el nombre
         """
@@ -67,7 +67,7 @@ class ClientType(models.Model):
         """!
         Meta clase del modelo que establece algunas propiedades
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         """
 
         verbose_name = 'Tipo de cliente'
@@ -78,7 +78,7 @@ class Disposition(models.Model):
     """!
     Clase que contiene las disposiciones
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -98,7 +98,7 @@ class Disposition(models.Model):
         """!
         Función para representar la clase de forma amigable
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @return string <b>{object}</b> Objeto con el nombre
         """
@@ -109,7 +109,7 @@ class Disposition(models.Model):
         """!
         Meta clase del modelo que establece algunas propiedades
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         """
 
         verbose_name = 'Disposición'
@@ -120,7 +120,7 @@ class Subdisposition(models.Model):
     """!
     Clase que contiene las subdisposiciones
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -140,7 +140,7 @@ class Subdisposition(models.Model):
         """!
         Función para representar la clase de forma amigable
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @return string <b>{object}</b> Objeto con el nombre
         """
@@ -151,7 +151,7 @@ class Subdisposition(models.Model):
         """!
         Meta clase del modelo que establece algunas propiedades
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         """
 
         verbose_name = 'Subdisposición'
@@ -162,7 +162,7 @@ class CallResult(models.Model):
     """!
     Clase que contiene los resultados de llamada
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -176,7 +176,7 @@ class CallResult(models.Model):
         """!
         Función para representar la clase de forma amigable
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @return string <b>{object}</b> Objeto con el nombre
         """
@@ -187,7 +187,7 @@ class CallResult(models.Model):
         """!
         Meta clase del modelo que establece algunas propiedades
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         """
 
         verbose_name = 'Resultado de llamda'
@@ -198,7 +198,7 @@ class Wom(models.Model):
     """!
     Clase que contiene el formulario de llamadas
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -258,7 +258,7 @@ class Wom(models.Model):
         """!
         Función que obtiene el proyecto de un agente
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @return string <b>object</b> Objeto con el correo
         """
@@ -272,7 +272,7 @@ class Wom(models.Model):
         """!
         Función para representar la clase de forma amigable
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @return string <b>{object}</b> Objeto con el nombre
         """

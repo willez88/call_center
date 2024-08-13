@@ -26,7 +26,7 @@ class UserUpdateView(UpdateView):
     """!
     Clase que permite a los usuarios actualizar sus datos
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -41,7 +41,7 @@ class UserUpdateView(UpdateView):
         Metodo que valida si el usuario del sistema tiene permisos para entrar
         a esta vista
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @param request <b>{object}</b> Objeto que contiene la petición
         @param *args <b>{tupla}</b> Tupla de valores, inicialmente vacia
@@ -59,7 +59,7 @@ class UserUpdateView(UpdateView):
         """!
         Función que agrega valores predeterminados a los campos del formulario
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @return Diccionario con los valores predeterminados
         """
@@ -76,7 +76,7 @@ class AgentListView(PermissionRequiredMixin, ListView):
     """!
     Clase que permite a usuarios supervisores listar usuarios agentes
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -90,7 +90,7 @@ class AgentFormView(PermissionRequiredMixin, FormView):
     """!
     Clase que permite a usuarios supervisores crear usuarios agentes
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -105,7 +105,7 @@ class AgentFormView(PermissionRequiredMixin, FormView):
         """!
         Metodo que valida si el formulario es correcto
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @param form <b>{object}</b> Objeto que contiene el formulario de
             registro

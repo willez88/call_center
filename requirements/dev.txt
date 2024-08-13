@@ -1,13 +1,14 @@
-Django==5.0.1
-django-extensions==3.2.2
+django==5.1
+django-extensions==3.2.3
 psycopg2-binary==2.9.9
-pygraphviz==1.11
-django-auditlog==2.3.0
-pandas==2.1.4
+pygraphviz==1.13
+django-auditlog==3.0.0
+pandas==2.2.2
 
 # Actualizaciones
-# Django
+# django
 # django-extensions
 # psycopg2-binary
 # pygraphviz
 # django-auditlog
+# pandas

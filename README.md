@@ -2,6 +2,11 @@
 
 Permite hacer un control del registro de llamdas de atención al cliente
 
+    - Usuario con estatus de superusuario puede realizar cualquier acción en el panel administrativo
+    - Usuario con rol Supervisor puede registrar agentes y ver el registro de atención al cliente
+    - usuario con rol Agente puede hacer el registro de atención al cliente
+    - Usuario con rol Analista puede ver el registro de atención al cliente
+
 ## Pasos para crear el entorno de desarrollo
 
 Cuando somos un usuario normal del sistema, en el terminal se mostrará el siguiente símbolo: ~$
@@ -11,16 +16,6 @@ Cuando accedemos al usuario root del sistema, en el terminal se mostrará el sig
 Probado en últimas versiones estables de Debian y Ubuntu. Instalar los siguientes programas
 
     ~# apt install curl git graphviz graphviz-dev phppgadmin postgresql python3-dev virtualenv
-
-Para instalar npm hacer lo siguiente
-
-    // Ubuntu
-    ~$ curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-
-    // Debian
-    ~# curl -sL https://deb.nodesource.com/setup_lts.x | bash -
-
-    ~# apt install -y nodejs
 
 Crear las siguientes carpetas
 
@@ -63,6 +58,8 @@ Nos movemos a la carpeta proyectos_django, descargamos el sistema y entramos a l
     (call_center) ~$ cd call_center/
 
     (call_center) ~$ cp call_center/settings.default.py call_center/settings.py
+
+    (call_center) ~$ mkdir db
 
 Tendremos las carpetas estructuradas de la siguiente manera
 

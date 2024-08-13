@@ -14,7 +14,7 @@ class WomForm(forms.ModelForm):
     """!
     Clase que contiene los campos del formulario
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -23,7 +23,7 @@ class WomForm(forms.ModelForm):
         """!
         Método que permite inicializar el formulario
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @param *args <b>{tupla}</b> Tupla de valores, inicialmente vacia
         @param *kwargs <b>{dict}</b> Diccionario de datos, inicialmente vacio
@@ -137,7 +137,7 @@ class WomForm(forms.ModelForm):
         """!
         Meta clase del formulario que establece algunas propiedades
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         """
 
         model = Wom
@@ -151,7 +151,7 @@ class SurveyForm(forms.Form):
     """!
     Clase que contiene los campos del formulario
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """

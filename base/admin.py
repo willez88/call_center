@@ -14,7 +14,7 @@ class ProjectAdmin(admin.ModelAdmin):
     """!
     Clase que agrega modelo Project al panel administrativo
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -32,7 +32,7 @@ class ClientTypeAdmin(admin.ModelAdmin):
     """!
     Clase que agrega modelo ClientType al panel administrativo
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -50,7 +50,7 @@ class DispositionAdmin(admin.ModelAdmin):
     """!
     Clase que agrega modelo Disposition al panel administrativo
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -73,7 +73,7 @@ class SubdispositionAdmin(admin.ModelAdmin):
     """!
     Clase que agrega modelo Subdisposition al panel administrativo
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -96,7 +96,7 @@ class CallResultAdmin(admin.ModelAdmin):
     """!
     Clase que agrega modelo CallResult al panel administrativo
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -114,7 +114,7 @@ class WomAdmin(admin.ModelAdmin):
     """!
     Clase que agrega modelo Wom al panel administrativo
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """

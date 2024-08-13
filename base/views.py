@@ -32,7 +32,7 @@ class HomeTemplateView(TemplateView):
     """!
     Clase que muestra la página inicial
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -44,7 +44,7 @@ class Error403TemplateView(TemplateView):
     """!
     Clase que muestra la página de error de permisos
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -56,7 +56,7 @@ class Error404TemplateView(TemplateView):
     """!
     Clase que muestra la página de error 404
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -68,7 +68,7 @@ class WomListView(PermissionRequiredMixin, ListView):
     """!
     Clase que lista los registros de atención al cliente en wom
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -82,7 +82,7 @@ class WomListView(PermissionRequiredMixin, ListView):
         Función que obtiene la lista de registros de atención al cliente asociados al usuario
         En caso de ser supervisor obtiene todos los datos
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @return queryset <b>{object}</b> lista de objetos wom asociados al usuario
         """
@@ -98,7 +98,7 @@ class WomCreateView(PermissionRequiredMixin, CreateView):
     """!
     Clase que permite a un usuario registrar solicitudes de mudanzas
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -113,7 +113,7 @@ class WomCreateView(PermissionRequiredMixin, CreateView):
         """!
         Método que permite pasar el usuario actualmente logueado al formulario
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @return Retorna un diccionario con el usuario actualmente logueado
         """
@@ -126,7 +126,7 @@ class WomCreateView(PermissionRequiredMixin, CreateView):
         """!
         Función que valida si el formulario está correcto
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @param form <b>{object}</b> Objeto que contiene el formulario
         @return super <b>{object}</b> Formulario validado
@@ -142,7 +142,7 @@ class WomUpdateView(PermissionRequiredMixin, UpdateView):
     """!
     Clase que permite a un usuario actualizar los registros WOM
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -158,7 +158,7 @@ class WomUpdateView(PermissionRequiredMixin, UpdateView):
         Metodo que valida si el usuario del sistema tiene permisos para entrar
         a esta vista
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @param request <b>{object}</b> Objeto que contiene la petición
         @param *args <b>{tupla}</b> Tupla de valores, inicialmente vacia
@@ -176,7 +176,7 @@ class WomUpdateView(PermissionRequiredMixin, UpdateView):
         """!
         Método que permite pasar el usuario actualmente logueado al formulario
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @return Retorna un diccionario con el usuario actualmente logueado
         """
@@ -189,7 +189,7 @@ class WomUpdateView(PermissionRequiredMixin, UpdateView):
         """!
         Función que agrega valores predeterminados a los campos del formulario
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @return initial_data <b>{object}</b> Valores predeterminado de los
             campos del formulario
@@ -205,7 +205,7 @@ class WomDeleteView(PermissionRequiredMixin, DeleteView):
     """!
     Clase que permite a un usuario eliminar datos
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -220,7 +220,7 @@ class WomDeleteView(PermissionRequiredMixin, DeleteView):
         Metodo que valida si el usuario del sistema tiene permisos para entrar
         a esta vista
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @param request <b>{object}</b> Objeto que contiene la petición
         @param *args <b>{tupla}</b> Tupla de valores, inicialmente vacia
@@ -238,7 +238,7 @@ class WomDeleteView(PermissionRequiredMixin, DeleteView):
         """!
         Función que retorna el mensaje de confirmación de la eliminación
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @param request <b>{object}</b> Objeto que contiene los datos de la
             petición
@@ -256,7 +256,7 @@ class WomDayArchiveView(DayArchiveView):
     Clase que permite calcular estadísticas de subdisposiciones, resultado de llamadas
     y usuarios agentes de forma diaria
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -271,7 +271,7 @@ class WomDayArchiveView(DayArchiveView):
         Metodo que valida si el usuario del sistema tiene permisos para entrar
         a esta vista
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @param request <b>{object}</b> Objeto que contiene la petición
         @param *args <b>{tupla}</b> Tupla de valores, inicialmente vacia
@@ -420,7 +420,7 @@ class SurveyFormView(FormView):
     """!
     Clase que permite subir archivos y hacer filtros
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """
@@ -433,7 +433,7 @@ class SurveyFormView(FormView):
         Metodo que valida si el usuario del sistema tiene permisos para entrar
         a esta vista
 
-        @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+        @author William Páez (paez.william8 at gmail.com)
         @param self <b>{object}</b> Objeto que instancia la clase
         @param request <b>{object}</b> Objeto que contiene la petición
         @param *args <b>{tupla}</b> Tupla de valores, inicialmente vacia
@@ -488,7 +488,7 @@ class CalendarTemplateView(TemplateView):
     """!
     Clase que muestra el calendario
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """

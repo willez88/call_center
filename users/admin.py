@@ -7,7 +7,7 @@ class AgentAdmin(admin.ModelAdmin):
     """!
     Clase que agrega modelo Agent al panel administrativo
 
-    @author Pedro Alvarez (alvarez.pedrojesus at gmail.com)
+    @author William Páez (paez.william8 at gmail.com)
     @copyright <a href='http://www.gnu.org/licenses/gpl-2.0.html'>
         GNU Public License versión 2 (GPLv2)</a>
     """

@@ -5,5 +5,4 @@
 settings.py
 migrations
 db
-logs
 .vscode/settings.json

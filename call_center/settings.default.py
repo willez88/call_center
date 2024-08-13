@@ -154,6 +154,8 @@ STATICFILES_DIRS = (
     BASE_DIR / 'static/',
 )
 
+STATIC_ROOT = BASE_DIR / 'static_root'
+
 LOGIN_URL = 'users:login'
 
 LOGIN_REDIRECT_URL = 'base:home'
@@ -182,7 +184,7 @@ else:
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Registra todos los modelos
-AUDITLOG_INCLUDE_ALL_MODELS=True
+AUDITLOG_INCLUDE_ALL_MODELS = True
 
 # No registra los datos cargados usando loaddata
-AUDITLOG_DISABLE_ON_RAW_SAVE=True
+AUDITLOG_DISABLE_ON_RAW_SAVE = True
