@@ -79,6 +79,10 @@ Crear la base de datos para __call_center__ usando PostgresSQL
 
     // Creación del usuario de a base de datos
     postgres=# CREATE USER admin WITH LOGIN ENCRYPTED PASSWORD '123' CREATEDB;
+
+    // Crear la base de datos y asignarle el propietario
+    postgres=# CREATE DATABASE django_example OWNER admin;
+
     postgres=# \q
 
     // Desautenticar el usuario PostgreSQL y regresar al usuario root
